@@ -35,7 +35,7 @@ public:
 	 */
 	 enum TEDROOMCCObsMngSignal { EDROOMSignalTimeout, 
 							EDROOMSignalDestroy, 
-							SObservTC };
+							SObsMng_TC };
 
 	/**
 	 * \class CCObsMng::CEDROOMMemory
@@ -90,8 +90,8 @@ public:
 	//******************  Component Communication Ports *******************
 	// ********************************************************************
 
-	//! ObservCtrl Component Port
-	CEDROOMInterface	ObservCtrl;
+	//! ObsMng Component Port
+	CEDROOMInterface	ObsMng;
 
 
 	// ********************************************************************
@@ -174,7 +174,7 @@ public:
 	 */
 	enum TEDROOMCCObsMngSignal { EDROOMSignalTimeout,
 		EDROOMSignalDestroy,
-		SObservTC };
+		SObsMng_TC };
 
 
 		friend class CCObsMng;
@@ -189,7 +189,7 @@ public:
 		CEDROOMMessage * &MsgBack;
 
 		//!Component ports
-		CEDROOMInterface & ObservCtrl;
+		CEDROOMInterface & ObsMng;
 		CEDROOMTimingInterface & ObservTimer;
 		CEDROOMTimingInterface & AttCtrlTimer;
 
@@ -197,21 +197,20 @@ public:
 		//! State Identifiers
 		enum TEDROOMStateID{I,
 			Standby,
-			Observation};
+			NewObservation};
 
 		//!Transition Identifiers
 		enum TEDROOMTransitionID{Init,
-			ExecTC,
-			DoAttCtrl,
-			DoAttCtrl_ToObservation,
-			DoAttCtrl_ToStandBy,
+			ToChoicePoint,
+			ToChoicePoint_ToNewObservation,
+			ToChoicePoint_PorgAttitude,
 			TakeImage,
-			TakeImage_LastImage,
-			TakeImage_NextImage,
+			TakeImage_ToStandby,
+			TakeImage_ToObservationAgain,
+			ExecTcs,
 			EDROOMMemoryTrans };
 
 		//!Constants
-		const Pr_Time CAttitudePeriod;
 		const Pr_Time CImageInterval;
 
 
@@ -256,17 +255,12 @@ public:
 		/**
 		 * \brief  
 		 */
-		void	FDoActtitudeCtrl();
+		void	FDoAttitudeCtrl();
 
 		/**
 		 * \brief  
 		 */
 		void	FEndObservation();
-
-		/**
-		 * \brief  
-		 */
-		void	FExecCameraMngTC();
 
 		/**
 		 * \brief  
@@ -302,6 +296,11 @@ public:
 		 * \brief  
 		 */
 		bool	GReadyToObservation();
+
+		/**
+		 * \brief 
+		 */
+		void	FExecObsMng_TC();
 
 	};
 
@@ -359,13 +358,13 @@ public:
 
 		// ***********************************************************************
 
-		// Leaf SubState Observation
+		// Leaf SubState NewObservation
 
 		// ***********************************************************************
 
 
 
-		TEDROOMTransId EDROOMObservationArrival();
+		TEDROOMTransId EDROOMNewObservationArrival();
 
 	};
 
