@@ -10,7 +10,12 @@
 
 class EmuGSS_TCProgram129_1:public EmuGSS_TCProgram{
 
-	//TODO 	Add required attributes
+	//TODO 	DONE 04 Add required attributes
+	int16_t mThetaYaw;
+
+	int16_t mThetaPitch;
+
+	uint8_t mNum_Samples;
 
 	virtual void BuildTCAppData(tc_mem_descriptor_t &tc_descriptor);
 
@@ -18,20 +23,27 @@ public:
 
 	EmuGSS_TCProgram129_1(uint32_t uniTime2YK,
                  const char * brief,int16_t ThetaYaw,int16_t ThetaPitch
-				 , uint8_t num_of_samples);
+				 , uint8_t num_samples);
+
 };
 
 
 class EmuGSS_TCProgram129_2:public EmuGSS_TCProgram{
 
-	//TODO   Add required attributes
+	//TODO DONE  05 Add required attributes
+	float mKp;
+
+	float mKi;
+
+	float mKd;
 
 	virtual void BuildTCAppData(tc_mem_descriptor_t &tc_descriptor);
 
 public:
 
 	EmuGSS_TCProgram129_2(uint32_t uniTime2YK,
-                 const char * brief,float Kp,float Kpi, float Kd);
+                 const char * brief,float Kp,float Ki, float Kd);
+
 };
 
 
