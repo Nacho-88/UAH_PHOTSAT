@@ -1,0 +1,54 @@
+Current OBT is = 100007
+GSS Rx TM [3,25] SID 20 Param Values {
+			Observation Active = 0, 
+			Theta Pitch= 0 minutes, 
+			Theta Yaw = 0 minutes, 
+			Theta Pitch Target = 0 minutes, 
+			Theta Yaw Target = 0 minutes, 
+			Theta Pitch W Control=0, 
+			Theta Yaw W Control=0}
+
+...
+
+Current OBT is = 100010
+
+GSS Tx TC[129,1] FT_ASW_SERV_129_0010_Step0, Set theta_pitch theta_yaw and number of images
+GSS Rx TM [1,1]
+GSS Rx TM [1,3]
+GSS Rx TM [1,7]
+GSS Rx TM [3,25] SID 20 Param Values {
+			Observation Active = 0, 
+			Theta Pitch= 0 minutes, 
+			Theta Yaw = 0 minutes, 
+			Theta Pitch Target = 600 minutes, 
+			Theta Yaw Target = 600 minutes, 
+			Theta Pitch W Control=0, 
+			Theta Yaw W Control=0}
+
+Current OBT is = 100011
+GSS Rx TM [3,25] SID 20 Param Values {
+			Observation Active = 0, 
+			Theta Pitch= 38 minutes, 
+			Theta Yaw = 38 minutes, 
+			Theta Pitch Target = 600 minutes, 
+			Theta Yaw Target = 600 minutes, 
+			Theta Pitch W Control=0, 
+			Theta Yaw W Control=0}
+...
+Current OBT is = 100093
+GSS Rx TM [3,25] SID 20 Param Values {
+			Observation Active = 0, 
+			Theta Pitch= 598 minutes, 
+			Theta Yaw = 598 minutes, 
+			Theta Pitch Target = 600 minutes, 
+			Theta Yaw Target = 600 minutes, 
+			Theta Pitch W Control=0, 
+			Theta Yaw W Control=0}
+GSS Rx TM [129,4]
+GSS Rx TM [129,4]
+GSS Rx TM [129,4]
+GSS Rx TM [129,4]
+GSS Rx TM [129,4]
+GSS Rx TM [129,4]
+GSS Rx TM [129,4]
+GSS Rx TM [129,4]
