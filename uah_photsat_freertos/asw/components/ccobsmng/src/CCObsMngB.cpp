@@ -19,7 +19,7 @@ CCObsMng::EDROOM_CTX_Top_0::EDROOM_CTX_Top_0(CCObsMng &act,
 	ObsMng(EDROOMcomponent.ObsMng),
 	ObservTimer(EDROOMcomponent.ObservTimer),
 	AttCtrlTimer(EDROOMcomponent.AttCtrlTimer),
-	CImageInterval(0,5),
+	CImageInterval(1,0),
 	VNextTimeOut(EDROOMpVarVNextTimeOut)
 {
 }
@@ -32,7 +32,7 @@ CCObsMng::EDROOM_CTX_Top_0::EDROOM_CTX_Top_0(EDROOM_CTX_Top_0 &context):
 	ObsMng(context.ObsMng),
 	ObservTimer(context.ObservTimer),
 	AttCtrlTimer(context.AttCtrlTimer),
-	CImageInterval(0,5),
+	CImageInterval(1,0),
 	VNextTimeOut(context.VNextTimeOut)
 {
 
@@ -85,19 +85,32 @@ pus_service129_end_observation();
 
 
 
+void	CCObsMng::EDROOM_CTX_Top_0::FExecObsMng_TC()
+
+{
+   //Handle Msg->data
+  CDTCHandler & varSObsMng_TC = *(CDTCHandler *)Msg->data;
+	
+// Data access
+	
+varSObsMng_TC.ExecTC();
+
+}
+
+
+
 void	CCObsMng::EDROOM_CTX_Top_0::FInit()
 
 {
    //Define absolute time
   Pr_Time time;
-
-  //Timing Service useful methods
-
+	 
+//Timing Service useful methods
+	 
 	time.GetTime(); // Get current monotonic time
 	time+=Pr_Time(0,100000); // Add X sec + Y microsec
-
-   //Program absolute timer
-   AttCtrlTimer.InformAt( time );
+   //Program absolute timer 
+   AttCtrlTimer.InformAt( time ); 
 }
 
 
@@ -171,20 +184,6 @@ return pus_service129_is_observation_ready();
 
 
 
-void	CCObsMng::EDROOM_CTX_Top_0::FExecObsMng_TC()
-
-{
-   //Handle Msg->data
-  CDTCHandler & varSObsMng_TC = *(CDTCHandler *)Msg->data;
-	
-// Data access
-	
-varSObsMng_TC.ExecTC();
-
-}
-
-
-
 	//********************************** Pools *************************************
 
 
@@ -201,8 +200,7 @@ varSObsMng_TC.ExecTC();
 
 CCObsMng::EDROOM_SUB_Top_0::EDROOM_SUB_Top_0 (CCObsMng&act):
 		EDROOM_CTX_Top_0(act,
-			VNextTimeOut),
-		VNextTimeOut()
+			VNextTimeOut)
 {
 
 }

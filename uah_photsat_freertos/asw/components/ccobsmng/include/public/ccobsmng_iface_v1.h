@@ -265,6 +265,11 @@ public:
 		/**
 		 * \brief  
 		 */
+		void	FExecObsMng_TC();
+
+		/**
+		 * \brief  
+		 */
 		void	FInit();
 
 		/**
@@ -296,11 +301,6 @@ public:
 		 * \brief  
 		 */
 		bool	GReadyToObservation();
-
-		/**
-		 * \brief 
-		 */
-		void	FExecObsMng_TC();
 
 	};
 

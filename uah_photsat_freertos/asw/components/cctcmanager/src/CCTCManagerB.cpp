@@ -113,6 +113,21 @@ void	CCTCManager::EDROOM_CTX_Top_0::FFwdToBKGTCExec()
 
 
 
+void	CCTCManager::EDROOM_CTX_Top_0::FFwdToObsMngTc()
+
+{
+   //Allocate data from pool
+  CDTCHandler * pSObsMng_TC_Data = EDROOMPoolCDTCHandler.AllocData();
+	
+		// Complete Data 
+	
+	*pSObsMng_TC_Data=VCurrentTC;
+   //Send message 
+   ObsMng.send(SObsMng_TC,pSObsMng_TC_Data,&EDROOMPoolCDTCHandler); 
+}
+
+
+
 void	CCTCManager::EDROOM_CTX_Top_0::FGetEvAction()
 
 {
@@ -238,16 +253,6 @@ return VTCExecCtrl.IsHK_FDIRTC();
 
 
 
-bool	CCTCManager::EDROOM_CTX_Top_0::GToReboot()
-
-{
-
-return VTCExecCtrl.IsRebootTC();
-
-}
-
-
-
 bool	CCTCManager::EDROOM_CTX_Top_0::GToObsMngTC()
 
 {
@@ -258,17 +263,12 @@ bool	CCTCManager::EDROOM_CTX_Top_0::GToObsMngTC()
 
 
 
-void	CCTCManager::EDROOM_CTX_Top_0::FFwdToObsMngTc()
+bool	CCTCManager::EDROOM_CTX_Top_0::GToReboot()
 
 {
-   //Allocate data from pool
-  CDTCHandler * pSObsMng_TC_Data = EDROOMPoolCDTCHandler.AllocData();
-	
-		// Complete Data 
-	
-	*pSObsMng_TC_Data=VCurrentTC;
-   //Send message 
-   ObsMng.send(SObsMng_TC,pSObsMng_TC_Data,&EDROOMPoolCDTCHandler); 
+
+return VTCExecCtrl.IsRebootTC();
+
 }
 
 

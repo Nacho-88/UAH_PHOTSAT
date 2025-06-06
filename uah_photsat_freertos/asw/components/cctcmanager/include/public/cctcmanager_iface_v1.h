@@ -328,6 +328,11 @@ public:
 		/**
 		 * \brief  
 		 */
+		void	FFwdToObsMngTc();
+
+		/**
+		 * \brief  
+		 */
 		void	FGetEvAction();
 
 		/**
@@ -378,17 +383,12 @@ public:
 		/**
 		 * \brief  
 		 */
-		bool	GToReboot();
-
-		/**
-		 * \brief 
-		 */
 		bool	GToObsMngTC();
 
 		/**
-		 * \brief 
+		 * \brief  
 		 */
-		void	FFwdToObsMngTc();
+		bool	GToReboot();
 
 	};
 
